@@ -19,7 +19,13 @@ var app = express();
 
 // Configure middleware
 
+// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
+// Set mongoose to leverage built in JavaScript ES6 Promises
+// Connect to the Mongo DB
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI);
 
 // Use morgan logger for logging requests
 app.use(logger("dev"));
@@ -30,20 +36,7 @@ app.use(express.static("public"));
 
 // // Connect to the Mongo DB
 // mongoose.connect("mongodb://localhost/scraper");
-mongoose.Promise = Promise;
-// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var connectDb = process.env.MONGODB_URI || "mongodb://localhost/heroku_357n71lg";
 
-if(process.env.MONGODB_URI) {
-    mongoose.connect(process.env.MONGODB_URI)
-} else {
-    mongoose.connect(connectDb);
-
-mongoose.connect(connectDb);
-
-mongoose.Promise = Promise;
-
-var db = mongoose.connection;
 
 
 
