@@ -25,7 +25,7 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://heroku_466fmh6m:6apb65o1ims3dcgj4c8mvqn731@ds259802.mlab.com:59802/heroku_466fmh6m");
+mongoose.connect(MONGODB_URI);
 
 // Use morgan logger for logging requests
 app.use(logger("dev"));
