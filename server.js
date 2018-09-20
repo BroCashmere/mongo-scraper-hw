@@ -25,7 +25,7 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI);
+mongoose.connect(mongodb://heroku_466fmh6m:6apb65o1ims3dcgj4c8mvqn731@ds259802.mlab.com:59802/heroku_466fmh6m);
 
 // Use morgan logger for logging requests
 app.use(logger("dev"));
@@ -34,8 +34,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Use express.static to serve the public folder as a static directory
 app.use(express.static("public"));
 
-// Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/scraper");
+// // Connect to the Mongo DB
+// mongoose.connect("mongodb://localhost/scraper");
 
 
 
